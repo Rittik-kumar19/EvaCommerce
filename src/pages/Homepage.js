@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import fireDB from "../fireConfig";
-import { fireproducts } from "../firecommerce-product";
+// import { fireproducts } from "../firecommerce-product";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 function Homepage() {
@@ -23,6 +23,7 @@ function Homepage() {
       const users = await getDocs(collection(fireDB, "products"));
       const productsArray = [];
       users.forEach((doc) => {
+        // console.log(doc.id, "=>", doc.data);
         const obj = {
           id: doc.id,
           ...doc.data(),
@@ -31,7 +32,7 @@ function Homepage() {
         productsArray.push(obj);
         setLoading(false);
       });
-
+      // console.log(productsArray);
       setProducts(productsArray);
     } catch (error) {
       console.log(error);

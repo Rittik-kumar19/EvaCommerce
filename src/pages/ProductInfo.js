@@ -45,7 +45,11 @@ function ProductInfo() {
                 <p>
                   <b>{product.name}</b>
                 </p>
-                <img src={product.imageURL} className="product-info-img" />
+                <img
+                  src={product.imageURL}
+                  alt=""
+                  className="product-info-img"
+                />
                 <hr />
                 <p>{product.description}</p>
                 <div className="d-flex justify-content-end my-3">
